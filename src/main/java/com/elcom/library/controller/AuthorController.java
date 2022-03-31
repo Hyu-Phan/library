@@ -20,6 +20,11 @@ public class AuthorController {
         return ResponseEntity.ok(authors);
     }
 
+    @GetMapping("/list")
+    public ResponseEntity<?> listOfBook(){
+        return ResponseEntity.ok(authorService.listBook());
+    }
+
     @PostMapping("")
     public ResponseEntity<?> addAuthor(@RequestBody Author author){
         return ResponseEntity.ok(authorService.saveAuthor(author));
