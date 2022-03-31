@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
-    @Query(value = "select a.name as name, count(b.id) as numOfBook " +
+    @Query(value = "select a.name as author, count(b.id) as numOfBook " +
             "from author a " +
             "left outer join book b " +
             "on a.id = b.author_id " +
