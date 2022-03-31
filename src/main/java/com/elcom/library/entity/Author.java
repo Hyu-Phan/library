@@ -1,5 +1,6 @@
 package com.elcom.library.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class Author {
     @Column(name = "dob")
     private String dob;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
     private List<Book> books = new ArrayList<>();
 }

@@ -35,6 +35,6 @@ public class Book {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "char_id")
-    private Character character;
+    @JoinColumn(name = "letter_id")
+    private Letter letter;
 }
