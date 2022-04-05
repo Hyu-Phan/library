@@ -1,7 +1,7 @@
-package com.elcom.library.service.impl;
+package com.elcom.library.service.impl.lib;
 
-import com.elcom.library.entity.Category;
-import com.elcom.library.model.dto.CategoryCustom;
+import com.elcom.library.entity.lib.Category;
+import com.elcom.library.repository.dto.CategoryCustom;
 import com.elcom.library.repository.CategoryRepository;
 import com.elcom.library.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

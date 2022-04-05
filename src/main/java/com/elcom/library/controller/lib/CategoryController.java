@@ -1,6 +1,6 @@
-package com.elcom.library.controller;
+package com.elcom.library.controller.lib;
 
-import com.elcom.library.entity.Category;
+import com.elcom.library.entity.lib.Category;
 import com.elcom.library.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("category")
+
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

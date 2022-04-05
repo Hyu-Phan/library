@@ -1,7 +1,7 @@
 package com.elcom.library.repository;
 
-import com.elcom.library.entity.Category;
-import com.elcom.library.model.dto.CategoryCustom;
+import com.elcom.library.entity.lib.Category;
+import com.elcom.library.repository.dto.CategoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

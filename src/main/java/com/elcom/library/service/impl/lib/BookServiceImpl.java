@@ -1,11 +1,10 @@
-package com.elcom.library.service.impl;
+package com.elcom.library.service.impl.lib;
 
-import com.elcom.library.entity.Book;
+import com.elcom.library.entity.lib.Book;
 import com.elcom.library.repository.BookRepository;
 import com.elcom.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.elcom.library.repository;
 
-import com.elcom.library.entity.Letter;
-import com.elcom.library.model.dto.LetterCustom;
+import com.elcom.library.entity.lib.Letter;
+import com.elcom.library.repository.dto.LetterCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,6 +1,6 @@
-package com.elcom.library.controller;
+package com.elcom.library.controller.lib;
 
-import com.elcom.library.entity.Author;
+import com.elcom.library.entity.lib.Author;
 import com.elcom.library.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

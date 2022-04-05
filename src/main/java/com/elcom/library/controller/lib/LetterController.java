@@ -1,6 +1,6 @@
-package com.elcom.library.controller;
+package com.elcom.library.controller.lib;
 
-import com.elcom.library.entity.Letter;
+import com.elcom.library.entity.lib.Letter;
 import com.elcom.library.service.LetterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/letter")
+
 public class LetterController {
     @Autowired
     private LetterService letterService;

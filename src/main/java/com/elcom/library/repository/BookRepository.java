@@ -1,12 +1,8 @@
 package com.elcom.library.repository;
 
-import com.elcom.library.entity.Book;
-import com.elcom.library.model.dto.AuthorCustom;
+import com.elcom.library.entity.lib.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {

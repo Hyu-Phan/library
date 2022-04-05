@@ -1,7 +1,7 @@
-package com.elcom.library.service.impl;
+package com.elcom.library.service.impl.lib;
 
-import com.elcom.library.entity.Letter;
-import com.elcom.library.model.dto.LetterCustom;
+import com.elcom.library.entity.lib.Letter;
+import com.elcom.library.repository.dto.LetterCustom;
 import com.elcom.library.repository.LetterRepository;
 import com.elcom.library.service.LetterService;
 import org.springframework.beans.factory.annotation.Autowired;

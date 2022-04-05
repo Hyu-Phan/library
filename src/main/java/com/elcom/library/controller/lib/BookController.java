@@ -1,22 +1,23 @@
-package com.elcom.library.controller;
+package com.elcom.library.controller.lib;
 
-import com.elcom.library.entity.Author;
-import com.elcom.library.entity.Book;
-import com.elcom.library.entity.Category;
-import com.elcom.library.entity.Letter;
+import com.elcom.library.entity.lib.Author;
+import com.elcom.library.entity.lib.Book;
+import com.elcom.library.entity.lib.Category;
+import com.elcom.library.entity.lib.Letter;
 import com.elcom.library.service.AuthorService;
 import com.elcom.library.service.BookService;
 import com.elcom.library.service.CategoryService;
 import com.elcom.library.service.LetterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/book")
+@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 public class BookController {
     @Autowired
     private BookService bookService;

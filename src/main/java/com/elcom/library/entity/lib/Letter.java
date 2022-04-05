@@ -1,11 +1,10 @@
-package com.elcom.library.entity;
+package com.elcom.library.entity.lib;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,10 +14,9 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
 @Entity
-@Table(name = "author")
-public class Author {
+@Table(name = "letter")
+public class Letter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,10 +24,7 @@ public class Author {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "dob")
-    private String dob;
-
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "letter")
     private List<Book> books = new ArrayList<>();
 }
