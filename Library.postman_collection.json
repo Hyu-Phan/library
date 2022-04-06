@@ -23,7 +23,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/author/login",
+							"raw": "localhost:8080/author/signup",
 							"host": [
 								"localhost"
 							],
@@ -51,7 +51,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/auth/signin",
+							"raw": "localhost:8080/auth/login",
 							"host": [
 								"localhost"
 							],
