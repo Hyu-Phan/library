@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.elcom")
+@ComponentScan(basePackages = "com.elcom.library.**")
 public class LibraryApplication {
 
 	public static void main(String[] args) {

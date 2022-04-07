@@ -1,7 +1,7 @@
 package com.elcom.library.service;
 
 import com.elcom.library.entity.lib.Category;
-import com.elcom.library.repository.dto.CategoryCustom;
+import com.elcom.library.dto.CategoryCustom;
 
 import java.util.List;
 

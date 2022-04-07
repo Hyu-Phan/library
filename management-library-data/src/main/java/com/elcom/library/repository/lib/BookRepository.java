@@ -1,4 +1,4 @@
-package com.elcom.library.repository;
+package com.elcom.library.repository.lib;
 
 import com.elcom.library.entity.lib.Book;
 import org.springframework.data.jpa.repository.JpaRepository;

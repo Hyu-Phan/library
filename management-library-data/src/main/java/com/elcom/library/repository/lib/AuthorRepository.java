@@ -1,7 +1,7 @@
-package com.elcom.library.repository;
+package com.elcom.library.repository.lib;
 
 import com.elcom.library.entity.lib.Author;
-import com.elcom.library.repository.dto.AuthorCustom;
+import com.elcom.library.dto.AuthorCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

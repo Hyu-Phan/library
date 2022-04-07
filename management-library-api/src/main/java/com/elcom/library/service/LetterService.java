@@ -1,7 +1,7 @@
 package com.elcom.library.service;
 
 import com.elcom.library.entity.lib.Letter;
-import com.elcom.library.repository.dto.LetterCustom;
+import com.elcom.library.dto.LetterCustom;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.elcom.library.repository.dto;
+package com.elcom.library.dto;
 
 public interface CategoryCustom {
     String getCategory();

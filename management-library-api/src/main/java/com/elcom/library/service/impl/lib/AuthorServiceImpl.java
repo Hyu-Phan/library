@@ -1,8 +1,8 @@
 package com.elcom.library.service.impl.lib;
 
 import com.elcom.library.entity.lib.Author;
-import com.elcom.library.repository.dto.AuthorCustom;
-import com.elcom.library.repository.AuthorRepository;
+import com.elcom.library.dto.AuthorCustom;
+import com.elcom.library.repository.lib.AuthorRepository;
 import com.elcom.library.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
