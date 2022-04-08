@@ -1,4 +1,4 @@
-package com.elcom.library.service.impl.lib;
+package com.elcom.library.service.impl;
 
 import com.elcom.library.entity.lib.Book;
 import com.elcom.library.repository.lib.BookRepository;

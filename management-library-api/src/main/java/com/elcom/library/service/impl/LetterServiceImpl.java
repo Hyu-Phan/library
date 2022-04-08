@@ -1,4 +1,4 @@
-package com.elcom.library.service.impl.lib;
+package com.elcom.library.service.impl;
 
 import com.elcom.library.entity.lib.Letter;
 import com.elcom.library.dto.LetterCustom;

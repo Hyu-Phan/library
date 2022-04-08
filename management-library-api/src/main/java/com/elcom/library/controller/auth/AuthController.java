@@ -8,7 +8,7 @@ import com.elcom.library.security.payload.response.UserResponse;
 import com.elcom.library.repository.auth.RoleRepository;
 import com.elcom.library.repository.auth.UserRepository;
 import com.elcom.library.security.jwt.JwtUtils;
-import com.elcom.library.service.impl.user.UserDetailsImpl;
+import com.elcom.library.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -91,7 +91,7 @@ public class AuthController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
 
         String jwt = jwtUtils.generateToken(userDetails);
 

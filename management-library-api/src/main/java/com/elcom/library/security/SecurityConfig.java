@@ -2,7 +2,7 @@ package com.elcom.library.security;
 
 import com.elcom.library.security.jwt.AuthEntryPointJwt;
 import com.elcom.library.security.jwt.AuthTokenFilter;
-import com.elcom.library.service.impl.user.UserDetailsServiceImpl;
+import com.elcom.library.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

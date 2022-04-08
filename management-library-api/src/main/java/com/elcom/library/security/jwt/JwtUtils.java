@@ -1,6 +1,6 @@
 package com.elcom.library.security.jwt;
 
-import com.elcom.library.service.impl.user.UserDetailsImpl;
+import com.elcom.library.security.CustomUserDetails;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -29,7 +29,7 @@ public class JwtUtils {
     }
 
     // Tạo token từ username trả về client
-    public String generateToken(UserDetailsImpl userDetails) {
+    public String generateToken(CustomUserDetails userDetails) {
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date())

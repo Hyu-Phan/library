@@ -36,6 +36,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <!--        Hibernate-->
         <dependency>
             <groupId>org.hibernate.validator</groupId>

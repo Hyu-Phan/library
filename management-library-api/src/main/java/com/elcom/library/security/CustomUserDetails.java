@@ -1,4 +1,4 @@
-package com.elcom.library.service.impl.user;
+package com.elcom.library.security;
 
 import com.elcom.library.entity.auth.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDetailsImpl implements UserDetails {
+public class CustomUserDetails implements UserDetails {
 
     private Long id;
 
@@ -25,12 +25,12 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public static UserDetailsImpl build(User user){
+    public static CustomUserDetails build(User user){
         List<GrantedAuthority> authorityList = new ArrayList<>();
         user.getRoles().forEach(role -> {
             authorityList.add(new SimpleGrantedAuthority(role.getName()));
         });
-        return new UserDetailsImpl(user.getId(),
+        return new CustomUserDetails(user.getId(),
                                     user.getUsername(),
                                     user.getPassword(),
                                     authorityList);
