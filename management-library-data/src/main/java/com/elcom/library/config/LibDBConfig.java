@@ -21,7 +21,7 @@ import java.util.Map;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "LibEntityManagerFactory",
-                        basePackages = {"com.elcom.library.repository"},
+                        basePackages = {"com.elcom.library.repository.lib"},
                         transactionManagerRef = "LibTransactionManager")
 public class LibDBConfig {
 
@@ -37,8 +37,12 @@ public class LibDBConfig {
         Map<String, Object> properties = new HashMap<>();
         properties.put("hibernate.hbm2ddl-auto", "update");
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-        return builder.dataSource(dataSource).properties(properties)
-                .packages("com.elcom.library.entity").build();
+
+        return builder
+                .dataSource(dataSource)
+                .properties(properties)
+                .packages("com.elcom.library.entity.lib")
+                .build();
 
     }
 

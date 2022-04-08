@@ -53,8 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
                 .antMatchers("/auth/**").permitAll()
-                .antMatchers("/author/**", "/category/**", "/letter/**").hasRole("ADMIN")
-                .anyRequest().authenticated();
+                .antMatchers("/book/**").authenticated()
+                .antMatchers("/author/**", "/category/**", "/letter/**").hasRole("ADMIN");
+
 
         // Thêm bộ lọc
         http.addFilterBefore(authTokenFilter(), UsernamePasswordAuthenticationFilter.class);
