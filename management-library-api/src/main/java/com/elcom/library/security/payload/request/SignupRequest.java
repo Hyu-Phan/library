@@ -1,4 +1,4 @@
-package com.elcom.library.payload.request;
+package com.elcom.library.security.payload.request;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -32,15 +32,11 @@ public class LibDBConfig {
     }
 
     @Bean(name = "LibEntityManagerFactory")
+    @ConfigurationProperties(prefix = "spring.db1.jpa.properties")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(EntityManagerFactoryBuilder builder,
                                                                            @Qualifier("LibDatasource") DataSource dataSource){
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.hbm2ddl-auto", "update");
-        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-
         return builder
                 .dataSource(dataSource)
-                .properties(properties)
                 .packages("com.elcom.library.entity.lib")
                 .build();
 

@@ -1,5 +1,7 @@
 package com.elcom.library.security;
 
+import com.elcom.library.security.jwt.AuthEntryPointJwt;
+import com.elcom.library.security.jwt.AuthTokenFilter;
 import com.elcom.library.service.impl.user.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,10 +24,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-    @Autowired AuthEntryPointJwt unauthorized;
+    @Autowired
+    AuthEntryPointJwt unauthorized;
 
     @Bean
-    public  AuthTokenFilter authTokenFilter(){
+    public AuthTokenFilter authTokenFilter(){
         return new AuthTokenFilter();
     }
 

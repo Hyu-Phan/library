@@ -2,12 +2,12 @@ package com.elcom.library.controller.auth;
 
 import com.elcom.library.entity.auth.Role;
 import com.elcom.library.entity.auth.User;
-import com.elcom.library.payload.request.LoginRequest;
-import com.elcom.library.payload.request.SignupRequest;
-import com.elcom.library.payload.response.UserResponse;
+import com.elcom.library.security.payload.request.LoginRequest;
+import com.elcom.library.security.payload.request.SignupRequest;
+import com.elcom.library.security.payload.response.UserResponse;
 import com.elcom.library.repository.auth.RoleRepository;
 import com.elcom.library.repository.auth.UserRepository;
-import com.elcom.library.security.JwtUtils;
+import com.elcom.library.security.jwt.JwtUtils;
 import com.elcom.library.service.impl.user.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.elcom.library.payload.response;
+package com.elcom.library.security.payload.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

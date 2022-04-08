@@ -35,15 +35,11 @@ public class AuthDBConfig {
 
     @Primary
     @Bean(name = "AuthEntityManagerFactory")
+    @ConfigurationProperties(prefix = "spring.db2.jpa.properties")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(EntityManagerFactoryBuilder builder,
                                                                            @Qualifier("AuthDatasource") DataSource dataSource) {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.hbm2ddl-auto", "update");
-        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-
         return builder
                 .dataSource(dataSource)
-                .properties(properties)
                 .packages("com.elcom.library.entity.auth")
                 .build();
     }

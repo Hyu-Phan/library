@@ -1,4 +1,4 @@
-package com.elcom.library.security;
+package com.elcom.library.security.jwt;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

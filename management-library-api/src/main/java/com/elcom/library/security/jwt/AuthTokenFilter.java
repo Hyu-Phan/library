@@ -1,5 +1,6 @@
-package com.elcom.library.security;
+package com.elcom.library.security.jwt;
 
+import com.elcom.library.security.jwt.JwtUtils;
 import com.elcom.library.service.impl.user.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

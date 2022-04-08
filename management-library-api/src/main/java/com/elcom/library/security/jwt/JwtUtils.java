@@ -1,4 +1,4 @@
-package com.elcom.library.security;
+package com.elcom.library.security.jwt;
 
 import com.elcom.library.service.impl.user.UserDetailsImpl;
 import io.jsonwebtoken.*;
@@ -18,15 +18,11 @@ import java.util.Date;
 
 @Component
 public class JwtUtils {
-    @Value("${elcom.app.jwtSecret}")
+    @Value("${jwtSecret}")
     private String jwtSecret;
 
-    @Value("${elcom.app.jwtExpirationMs}")
+    @Value("${jwtExpirationMs}")
     private int jwtExp;
-
-    @Value("${elcom.app.jwtCookieName}")
-    private String jwtCookie;
-
 
     public String getUsernameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
@@ -41,7 +37,6 @@ public class JwtUtils {
                 .signWith(SignatureAlgorithm.HS256, jwtSecret)
                 .compact();
     }
-
 
     public String getJwtFromRequest(HttpServletRequest requets){
         String bearerToken = requets.getHeader("Authorization");
@@ -58,7 +53,6 @@ public class JwtUtils {
         } catch (Exception e){
         }
         return false;
-
     }
 }
 
