@@ -47,4 +47,4 @@ CREATE TABLE public.borrowed_m12 PARTITION OF public.borrowed
     FOR VALUES FROM ('2022-12-01') TO ('2023-01-01');
 
 --Index
-CREATE INDEX ON borrowed (id, date);
+CREATE INDEX ON borrowed (book_id);
