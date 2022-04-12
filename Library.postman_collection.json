@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"phanhuy\",\r\n    \"password\": \"12345678\",\r\n    \"role\":[\r\n        \"admin\"\r\n    ]\r\n}",
+							"raw": "{\r\n    \"username\": \"phanhuy\",\r\n    \"password\": \"12345678\",\r\n    \"roles\":[\r\n        \"admin\"\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -23,13 +23,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/author/signup",
+							"raw": "localhost:8080/auth/signup",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"author",
+								"auth",
 								"signup"
 							]
 						}
@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"phanhuy\",\r\n    \"password\" : \"12345678\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"phanhuy2\",\r\n    \"password\" : \"12345678\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -58,7 +58,7 @@
 							"port": "8080",
 							"path": [
 								"auth",
-								"signin"
+								"login"
 							]
 						}
 					},
@@ -76,7 +76,14 @@
 							"name": "Get/Post/Put Book",
 							"request": {
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwaGFuaHV5MSIsImlhdCI6MTY0OTEzNzYzMCwiZXhwIjoxNjQ5MjI0MDMwfQ.ZYP6zcHBJ-eSiB1pt-9yTGrdKH7ePj_D0twxoNfa7l4",
+										"type": "text",
+										"disabled": true
+									}
+								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n    \"name\": \"Habbits\",\r\n    \"time\": \"1990\"\r\n}",
@@ -403,6 +410,93 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Borrowed",
+			"item": [
+				{
+					"name": "Thêm mượn sách",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/borrowed/1/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"borrowed",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Thống kê sách mượn",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date1\": \"2022-01-01\",\r\n    \"date2\": \"2022-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/borrowed/time",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"borrowed",
+								"time"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sách mượn nhiều nhất",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date1\": \"2022-01-01\",\r\n    \"date2\": \"2022-02-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/borrowed/time",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"borrowed",
+								"time"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
@@ -410,7 +504,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwaGFuaHV5MSIsImlhdCI6MTY0OTEzOTk3MSwiZXhwIjoxNjQ5MjI2MzcxfQ.yT6INkOFsb8TivurSlogFzpreUu-JV833xY8RM3Q2LE",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0OTcyNjIyNCwiZXhwIjoxNjQ5ODEyNjI0fQ.7JBJI9jTuleMIKA1Wzyq7xcDT1EsNgZZ_Eh91jAf9DY",
 				"type": "string"
 			}
 		]

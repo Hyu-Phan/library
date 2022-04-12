@@ -1,3 +1,0 @@
-INSERT INTO security.roles(name) VALUES('ROLE_USER');
-INSERT INTO security.roles(name) VALUES('ROLE_MOD');
-INSERT INTO security.roles(name) VALUES('ROLE_ADMIN');

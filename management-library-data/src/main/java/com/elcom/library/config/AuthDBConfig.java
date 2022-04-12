@@ -16,13 +16,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
+
 
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "AuthEntityManagerFactory",
-                        basePackages = {"com.elcom.library.repository.auth"},
+                        basePackages = {"com.elcom.library.repository"},
                         transactionManagerRef = "AuthTransactionManager")
 public class AuthDBConfig {
 
@@ -40,7 +39,7 @@ public class AuthDBConfig {
                                                                            @Qualifier("AuthDatasource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.elcom.library.entity.auth")
+                .packages("com.elcom.library.entity")
                 .build();
     }
 

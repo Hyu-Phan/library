@@ -1,5 +1,7 @@
 package com.elcom.library.entity.lib;
 
+import com.elcom.library.entity.auth.Borrowed;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +9,7 @@ import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -37,4 +40,8 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "letter_id")
     private Letter letter;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "book", targetEntity = Borrowed.class)
+    private List<Borrowed> userBorrowed;
 }
