@@ -2,7 +2,11 @@ package com.elcom.library.controller.lib;
 
 import com.elcom.library.entity.lib.Author;
 import com.elcom.library.service.AuthorService;
+import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +24,12 @@ public class AuthorController {
         return ResponseEntity.ok(authors);
     }
 
+    @Cacheable(value = "author")
+    @GetMapping("/{author_id}")
+    public Author findAuthorById(@PathVariable int author_id){
+        return authorService.getAuthorById(author_id);
+    }
+
     @GetMapping("/list")
     public ResponseEntity<?> listOfBook(){
         return ResponseEntity.ok(authorService.listBook());
@@ -30,11 +40,13 @@ public class AuthorController {
         return ResponseEntity.ok(authorService.saveAuthor(author));
     }
 
+    @CachePut(value = "author", key = "#author.id")
     @PutMapping("")
     public ResponseEntity<?> editAuthor(@RequestBody Author author){
         return ResponseEntity.ok(authorService.updateAuthor(author));
     }
 
+    @CacheEvict(value = "user", key = "#id")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteAuthor(@PathVariable int id){
         return ResponseEntity.ok(authorService.deleteAuthor(id));

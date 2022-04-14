@@ -1,6 +1,5 @@
 package com.elcom.library.entity.lib;
 
-import com.elcom.library.entity.auth.Borrowed;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

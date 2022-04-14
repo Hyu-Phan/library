@@ -1,8 +1,12 @@
 package com.elcom.library.controller.lib;
 
+import com.elcom.library.entity.lib.Author;
 import com.elcom.library.entity.lib.Category;
 import com.elcom.library.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,16 +25,24 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
+    @Cacheable(value = "category", key = "#id")
+    @GetMapping("/{id}")
+    public Category findAuthorById(@PathVariable int id){
+        return categoryService.getCateById(id);
+    }
+
     @PostMapping("")
     public ResponseEntity<?> addCate(@RequestBody Category cate){
         return ResponseEntity.ok(categoryService.saveCate(cate));
     }
 
+    @CachePut(value = "category", key = "#cate.id")
     @PutMapping("")
     public ResponseEntity<?> editCate(@RequestBody Category cate){
         return ResponseEntity.ok(categoryService.updateCate(cate));
     }
 
+    @CacheEvict(value = "category", key = "#id")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCate(@PathVariable int id){
         return ResponseEntity.ok(categoryService.deleteCate(id));

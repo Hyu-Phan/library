@@ -1,7 +1,7 @@
-package com.elcom.library.controller.auth;
+package com.elcom.library.controller.lib;
 
 import com.elcom.library.controller.request.TimeBookBorrowed;
-import com.elcom.library.entity.auth.Borrowed;
+import com.elcom.library.entity.lib.Borrowed;
 import com.elcom.library.service.BorrowedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

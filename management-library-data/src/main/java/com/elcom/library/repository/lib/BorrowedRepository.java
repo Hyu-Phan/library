@@ -1,7 +1,7 @@
-package com.elcom.library.repository.auth;
+package com.elcom.library.repository.lib;
 
 import com.elcom.library.dto.BookBorrowed;
-import com.elcom.library.entity.auth.Borrowed;
+import com.elcom.library.entity.lib.Borrowed;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,6 +1,7 @@
-package com.elcom.library.entity.auth;
+package com.elcom.library.entity.lib;
 
 
+import com.elcom.library.entity.auth.User;
 import com.elcom.library.entity.lib.Book;
 import lombok.Getter;
 import lombok.Setter;
