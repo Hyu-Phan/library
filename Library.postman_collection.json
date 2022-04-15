@@ -497,6 +497,98 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Rabbitmq",
+			"item": [
+				{
+					"name": "Worker",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\" : \"Hello\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/rabbitmq/worker?numOfTasks=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rabbitmq",
+								"worker"
+							],
+							"query": [
+								{
+									"key": "numOfTasks",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rpc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rabbitmq/rpc?message=hello",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rabbitmq",
+								"rpc"
+							],
+							"query": [
+								{
+									"key": "message",
+									"value": "hello"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rabbitmq/pub?message=hello",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rabbitmq",
+								"pub"
+							],
+							"query": [
+								{
+									"key": "message",
+									"value": "hello"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
@@ -504,7 +596,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0OTcyNjIyNCwiZXhwIjoxNjQ5ODEyNjI0fQ.7JBJI9jTuleMIKA1Wzyq7xcDT1EsNgZZ_Eh91jAf9DY",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0OTkxNTM2MywiZXhwIjoxNjUwMDAxNzYzfQ.QIGLlgvd1kmrppPcUA7nyibJDKac10fj8urjK4Bjgto",
 				"type": "string"
 			}
 		]
