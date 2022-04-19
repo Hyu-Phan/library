@@ -9,11 +9,10 @@ import java.util.List;
 
 @Service
 public interface BorrowedService {
-    List<Borrowed> getBorrowed();
 
     Borrowed addBorrowed(Long user_id, int book_id);
 
-    List<BookBorrowed> listBookByUser(Long user_id);
+    List<BookBorrowed> listBookByUser(Date start, Date end, Long user_id);
 
     List<BookBorrowed> listBookByTime(Date start, Date end);
 

@@ -21,25 +21,25 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "AuthEntityManagerFactory",
-                        basePackages = {"com.elcom.library.repository"},
-                        transactionManagerRef = "AuthTransactionManager")
+        basePackages = {"com.elcom.library.repository.auth"},
+        transactionManagerRef = "AuthTransactionManager")
 public class AuthDBConfig {
 
     @Primary
     @Bean(name = "AuthDatasource")
-    @ConfigurationProperties(prefix = "spring.db2.datasource")
+    @ConfigurationProperties(prefix = "spring.db1.datasource")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Primary
     @Bean(name = "AuthEntityManagerFactory")
-    @ConfigurationProperties(prefix = "spring.db2.jpa.properties")
+    @ConfigurationProperties(prefix = "spring.db1.jpa.properties")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(EntityManagerFactoryBuilder builder,
                                                                            @Qualifier("AuthDatasource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.elcom.library.entity")
+                .packages("com.elcom.library.entity.auth")
                 .build();
     }
 

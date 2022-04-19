@@ -10,7 +10,7 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 
 import java.io.IOException;
 
-@RabbitListener(queues = "worker_queue")
+@RabbitListener(queues = "workerQueue")
 public class WorkerReceiver {
     private final int id;
     private int numberOfTasks;
@@ -18,8 +18,6 @@ public class WorkerReceiver {
         this.id = id;
         this.numberOfTasks = 0;
     }
-
-
 
     @RabbitHandler
     public void received(String message, Channel channel) throws InterruptedException, IOException {
@@ -38,6 +36,7 @@ public class WorkerReceiver {
             }
         }
 //        channel.basicAck(deliveryTag, false);
-        System.out.println("Worker " + id + " completed " + numberOfTasks++ + " tasks");
+        numberOfTasks++;
+        System.out.println("Worker " + id + " completed " + numberOfTasks + " tasks");
     }
 }

@@ -25,7 +25,6 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
-    @Cacheable(value = "category", key = "#id")
     @GetMapping("/{id}")
     public Category findAuthorById(@PathVariable int id){
         return categoryService.getCateById(id);
@@ -36,7 +35,6 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.saveCate(cate));
     }
 
-    @CachePut(value = "category", key = "#cate.id")
     @PutMapping("")
     public ResponseEntity<?> editCate(@RequestBody Category cate){
         return ResponseEntity.ok(categoryService.updateCate(cate));

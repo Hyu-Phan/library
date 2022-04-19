@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 public class RpcConfig {
 
     public static class ClientConfig{
-        @Bean("rpc_exchange_client")
+        @Bean("exchangeClient")
         public DirectExchange directExchange() {
-            return new DirectExchange("rpc_exchange");
+            return new DirectExchange("rpcExchange");
         }
         @Bean
         public RpcClient rpcClient() {
@@ -23,16 +23,16 @@ public class RpcConfig {
     }
 
     public static class ServerConfig {
-        @Bean
+        @Bean("rpcQueue")
         public Queue queue(){
-            return new Queue("rpc_queue");
+            return new Queue("rpcQueue");
         }
-        @Bean("rpcExchange")
+        @Bean("exchangeServer")
         public DirectExchange directExchange() {
-            return new DirectExchange("rpc_exchange");
+            return new DirectExchange("rpcExchange");
         }
         @Bean
-        public Binding binding( Queue queue,@Qualifier("rpcExchange") DirectExchange rpcExchange){
+        public Binding binding(@Qualifier("rpcQueue") Queue queue,@Qualifier("exchangeServer") DirectExchange rpcExchange){
             return BindingBuilder.bind(queue).to(rpcExchange).with("rpc");
         }
         @Bean

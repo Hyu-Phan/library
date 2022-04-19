@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.sql.Date;
 
 @Getter
@@ -18,9 +19,9 @@ public class Borrowed {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @NotBlank
+    @Column(name = "user_id")
+    private Long user_id;
 
     @ManyToOne(targetEntity = com.elcom.library.entity.lib.Book.class)
     @JoinColumn(name = "book_id")
@@ -29,8 +30,8 @@ public class Borrowed {
     @Column(name = "date")
     private Date date;
 
-    public Borrowed(User user, Book book) {
-        this.user = user;
+    public Borrowed(Long user_id, Book book) {
+        this.user_id = user_id;
         this.book = book;
         this.date = new Date(new java.util.Date().getTime());
     }

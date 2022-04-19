@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class WorkerConfig {
-    @Bean(name = "worker_queue")
+    @Bean(name = "workerQueue")
     public Queue queue() {
-        return  new Queue("worker_queue");
+        return  new Queue("workerQueue");
     }
 
     public static class Receiver {

@@ -26,21 +26,15 @@ public class BorrowedServiceImpl implements BorrowedService {
     private BookRepository bookRepository;
 
     @Override
-    public List<Borrowed> getBorrowed() {
-        return borrowedRepository.findAll();
-    }
-
-    @Override
     public Borrowed addBorrowed(Long user_id, int book_id) {
-        User user = userRepository.findById(user_id).orElse(null);
         Book book = bookRepository.findById(book_id).orElse(null);
-        Borrowed borrowed = new Borrowed(user, book);
+        Borrowed borrowed = new Borrowed(user_id, book);
         return borrowedRepository.save(borrowed);
     }
 
     @Override
-    public List<BookBorrowed> listBookByUser(Long user_id) {
-        return borrowedRepository.findBookBorrowedByUser(user_id);
+    public List<BookBorrowed> listBookByUser(Date start, Date end, Long user_id) {
+        return borrowedRepository.findBookBorrowedByUser(start, end, user_id);
     }
 
     @Override

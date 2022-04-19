@@ -5,6 +5,9 @@ import com.elcom.library.dto.AuthorCustom;
 import com.elcom.library.repository.lib.AuthorRepository;
 import com.elcom.library.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +22,7 @@ public class AuthorServiceImpl implements AuthorService {
         return repository.findAll();
     }
 
+    @Cacheable(cacheManager = "cacheManager", value = "author", key = "#id")
     @Override
     public Author getAuthorById(int id) {
         return repository.findById(id).orElse(null);
@@ -34,6 +38,7 @@ public class AuthorServiceImpl implements AuthorService {
         return repository.save(author);
     }
 
+    @CachePut(cacheManager = "cacheManager", value = "author", key = "#author.id")
     @Override
     public Author updateAuthor(Author author) {
         Author existAuthor = repository.findById(author.getId()).orElse(null);
@@ -42,6 +47,7 @@ public class AuthorServiceImpl implements AuthorService {
         return repository.save(existAuthor);
     }
 
+    @CacheEvict(cacheManager = "cacheManager", value = "author", key = "#id")
     @Override
     public String deleteAuthor(int id) {
         repository.deleteById(id);

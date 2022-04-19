@@ -10,7 +10,6 @@
 
 <!--    Log File-->
     <appender name="SAVE-TO-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/logging.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern> %d{dd-MM-yyyy HH:mm:ss} %-5level [%thread] %logger{36}.%M : %msg%n</pattern>
         </encoder>

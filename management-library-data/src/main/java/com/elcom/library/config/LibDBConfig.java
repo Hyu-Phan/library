@@ -18,28 +18,27 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
-//@Configuration
+@Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "LibEntityManagerFactory",
-                        basePackages = {"com.elcom.library.repository.lib"},
-                        transactionManagerRef = "LibTransactionManager")
+        basePackages = {"com.elcom.library.repository.lib"},
+        transactionManagerRef = "LibTransactionManager")
 public class LibDBConfig {
 
     @Bean(name = "LibDatasource")
-    @ConfigurationProperties(prefix = "spring.db1.datasource")
+    @ConfigurationProperties(prefix = "spring.db2.datasource")
     public DataSource mySqlSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "LibEntityManagerFactory")
-    @ConfigurationProperties(prefix = "spring.db1.jpa.properties")
+    @ConfigurationProperties(prefix = "spring.db2.jpa.properties")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(EntityManagerFactoryBuilder builder,
                                                                            @Qualifier("LibDatasource") DataSource dataSource){
         return builder
                 .dataSource(dataSource)
                 .packages("com.elcom.library.entity.lib")
                 .build();
-
     }
 
     @Bean(name = "LibTransactionManager")

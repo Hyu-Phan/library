@@ -28,7 +28,7 @@ public class MQConfig {
     @Value("${spring.rabbitmq.host}")
     private String host;
 
-    @Bean
+    @Bean("queue")
     public Queue queue(){
         return new Queue(queue);
     }

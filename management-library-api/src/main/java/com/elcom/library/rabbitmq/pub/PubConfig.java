@@ -12,7 +12,7 @@ public class PubConfig {
     }
 
     public static class MultiPubReceiver{
-//        PubReceiver1
+        //        PubReceiver1
         @Bean
         public Queue queue1() {
             return new AnonymousQueue();
@@ -26,7 +26,7 @@ public class PubConfig {
             return new PubReceiver1();
         }
 
-//        PubReceiver2
+        //        PubReceiver2
         @Bean
         public Queue queue2() {
             return new AnonymousQueue();

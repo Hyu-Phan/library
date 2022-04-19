@@ -5,6 +5,9 @@ import com.elcom.library.dto.CategoryCustom;
 import com.elcom.library.repository.lib.CategoryRepository;
 import com.elcom.library.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +22,7 @@ public class CategoryServiceImpl implements CategoryService {
         return repository.findAll();
     }
 
+    @Cacheable(cacheManager = "cacheManager", value = "category", key = "#id")
     @Override
     public Category getCateById(int id) {
         return repository.findById(id).orElse(null);
@@ -29,6 +33,7 @@ public class CategoryServiceImpl implements CategoryService {
         return repository.save(category);
     }
 
+    @CachePut(cacheManager = "cacheManager", value = "category", key = "#category.id")
     @Override
     public Category updateCate(Category category) {
         return repository.save(category);
@@ -40,6 +45,7 @@ public class CategoryServiceImpl implements CategoryService {
         return "Delete Success";
     }
 
+    @CacheEvict(cacheManager = "cacheManager", value = "category", key = "#id")
     @Override
     public List<CategoryCustom> listBook() {
         return repository.findNumOfBook();

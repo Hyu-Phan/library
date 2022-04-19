@@ -6,13 +6,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 
-@RabbitListener(queues = "rpc_queue")
+
 public class RpcServer {
-    @RabbitHandler
-    public String doWork(String task) throws InterruptedException {
-        System.out.println("Server: received " + task);
-        System.out.println("Server: is doing....");
-        Thread.sleep(2000);
-        return "Task completed";
+    @RabbitListener(queues = "rpcQueue")
+    public int doWork(int num) throws InterruptedException {
+        System.out.println("Server: received " + num);
+        return factorial(num);
+    }
+
+    public int factorial(int n){
+        if(n == 1) return 1;
+        return n * factorial(n-1);
     }
 }

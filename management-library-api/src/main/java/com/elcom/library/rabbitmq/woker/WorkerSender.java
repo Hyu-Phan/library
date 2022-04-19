@@ -15,7 +15,7 @@ public class WorkerSender {
     private RabbitTemplate rabbitTemplate;
 
     @Autowired
-    @Qualifier("worker_queue")
+    @Qualifier("workerQueue")
     private Queue queue;
 
     public void send(int numOfTasks) {

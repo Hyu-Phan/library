@@ -42,9 +42,9 @@ public class RabbitController {
     }
 
     @GetMapping("/rpc")
-    public ResponseEntity<?> sendRpcMessage(@RequestParam String message){
-        rpcClient.sendTask(message);
-        return ResponseEntity.ok("Send message successfully");
+    public ResponseEntity<?> sendRpcMessage(@RequestParam int num){
+        int result = rpcClient.sendTask(num);
+        return ResponseEntity.ok("Giai thừa của " + num + " là " + result);
     }
 
 }

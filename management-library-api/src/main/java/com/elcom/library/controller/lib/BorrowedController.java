@@ -14,11 +14,6 @@ public class BorrowedController {
     @Autowired
     private BorrowedService borrowedService;
 
-    @GetMapping("")
-    public ResponseEntity<?> getAllBorrowed() {
-        return ResponseEntity.ok(borrowedService.getBorrowed());
-    }
-
     @PostMapping("/{user_id}/{book_id}")
     public ResponseEntity<?> addBorrowed(@PathVariable Long user_id, @PathVariable int book_id){
         Borrowed borrowed = borrowedService.addBorrowed(user_id, book_id);
@@ -26,8 +21,8 @@ public class BorrowedController {
     }
 
     @GetMapping("/user/{user_id}")
-    public ResponseEntity<?> listBookByUser(@PathVariable Long user_id){
-        return ResponseEntity.ok(borrowedService.listBookByUser(user_id));
+    public ResponseEntity<?> listBookByUser(@PathVariable Long user_id, @RequestBody TimeBookBorrowed date){
+        return ResponseEntity.ok(borrowedService.listBookByUser(date.getStart(), date.getEnd(), user_id));
     }
 
     @GetMapping("/time")

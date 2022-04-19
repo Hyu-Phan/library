@@ -24,7 +24,6 @@ public class AuthorController {
         return ResponseEntity.ok(authors);
     }
 
-    @Cacheable(value = "author")
     @GetMapping("/{author_id}")
     public Author findAuthorById(@PathVariable int author_id){
         return authorService.getAuthorById(author_id);
@@ -40,13 +39,11 @@ public class AuthorController {
         return ResponseEntity.ok(authorService.saveAuthor(author));
     }
 
-    @CachePut(value = "author", key = "#author.id")
     @PutMapping("")
     public ResponseEntity<?> editAuthor(@RequestBody Author author){
         return ResponseEntity.ok(authorService.updateAuthor(author));
     }
 
-    @CacheEvict(value = "user", key = "#id")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteAuthor(@PathVariable int id){
         return ResponseEntity.ok(authorService.deleteAuthor(id));
